@@ -1,0 +1,263 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.2.1 Tue Mar 17 19:08:17 2015
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module lcc23240
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _gets
+                             13 	.globl _puts
+                             14 	.globl _sprintf
+                             15 	.globl _printf
+                             16 	.globl _putchar
+                             17 	.globl _get_tiles
+                             18 	.globl _set_tiles
+                             19 	.globl _get_data
+                             20 	.globl _set_data
+                             21 	.globl _scroll_sprite
+                             22 	.globl _move_sprite
+                             23 	.globl _get_sprite_prop
+                             24 	.globl _set_sprite_prop
+                             25 	.globl _get_sprite_tile
+                             26 	.globl _set_sprite_tile
+                             27 	.globl _get_sprite_data
+                             28 	.globl _set_sprite_data
+                             29 	.globl _scroll_win
+                             30 	.globl _move_win
+                             31 	.globl _get_win_tiles
+                             32 	.globl _set_win_tiles
+                             33 	.globl _set_win_data
+                             34 	.globl _scroll_bkg
+                             35 	.globl _move_bkg
+                             36 	.globl _get_bkg_tiles
+                             37 	.globl _set_bkg_tiles
+                             38 	.globl _set_bkg_data
+                             39 	.globl _hiramcpy
+                             40 	.globl _display_off
+                             41 	.globl _wait_vbl_done
+                             42 	.globl _reset
+                             43 	.globl _set_interrupts
+                             44 	.globl _disable_interrupts
+                             45 	.globl _enable_interrupts
+                             46 	.globl _waitpadup
+                             47 	.globl _waitpad
+                             48 	.globl _joypad
+                             49 	.globl _delay
+                             50 	.globl _receive_byte
+                             51 	.globl _send_byte
+                             52 	.globl _get_mode
+                             53 	.globl _mode
+                             54 	.globl _add_TIM
+                             55 	.globl _add_LCD
+                             56 	.globl _add_VBL
+                             57 	.globl _remove_JOY
+                             58 	.globl _remove_SIO
+                             59 	.globl _remove_TIM
+                             60 	.globl _remove_LCD
+                             61 	.globl _remove_VBL
+                             62 	.globl _cgb_compatibility
+                             63 	.globl _cpu_fast
+                             64 	.globl _cpu_slow
+                             65 	.globl _set_sprite_palette_entry
+                             66 	.globl _set_bkg_palette_entry
+                             67 	.globl _set_sprite_palette
+                             68 	.globl _set_bkg_palette
+                             69 	.globl _sgb_check
+                             70 ;--------------------------------------------------------
+                             71 ; Externals used
+                             72 ;--------------------------------------------------------
+                             73 	.globl __io_out
+                             74 	.globl __io_in
+                             75 	.globl __io_status
+                             76 	.globl _sys_time
+                             77 	.globl __cpu
+                             78 ;--------------------------------------------------------
+                             79 ; special function registers
+                             80 ;--------------------------------------------------------
+                             81 ;--------------------------------------------------------
+                             82 ; special function bits 
+                             83 ;--------------------------------------------------------
+                             84 ;--------------------------------------------------------
+                             85 ; internal ram data
+                             86 ;--------------------------------------------------------
+                             87 	.area _DATA
+                             88 ;--------------------------------------------------------
+                             89 ; overlayable items in internal ram 
+                             90 ;--------------------------------------------------------
+                             91 	.area _OVERLAY
+                             92 ;--------------------------------------------------------
+                             93 ; indirectly addressable internal ram data
+                             94 ;--------------------------------------------------------
+                             95 	.area _ISEG
+                             96 ;--------------------------------------------------------
+                             97 ; bit data
+                             98 ;--------------------------------------------------------
+                             99 	.area _BSEG
+                            100 ;--------------------------------------------------------
+                            101 ; external ram data
+                            102 ;--------------------------------------------------------
+                            103 	.area _XSEG
+                            104 ;--------------------------------------------------------
+                            105 ; global & static initialisations
+                            106 ;--------------------------------------------------------
+                            107 	.area _GSINIT
+                            108 	.area _GSFINAL
+                            109 	.area _GSINIT
+                            110 ;--------------------------------------------------------
+                            111 ; code
+                            112 ;--------------------------------------------------------
+                            113 	.area _CODE
+                            114 ;	dscan.c 4
+                            115 ; genLabel
+                            116 ; genFunction
+                            117 ;	---------------------------------
+                            118 ; Function main
+                            119 ; ---------------------------------
+   0000                     120 ___main_start:
+   0000                     121 _main:
+   0000 C5                  122 	push	bc
+                            123 ;	dscan.c 6
+                            124 ; genIpush
+   0001 21 27 00            125 	ld	hl,#__str_0 + 0
+   0004 E5                  126 	push	hl
+                            127 ; genCall
+   0005 CD 00 00            128 	call	_printf
+   0008 E8 02               129 	lda	sp,2(sp)
+                            130 ;	dscan.c 7
+                            131 ; genIpush
+   000A 21 46 00            132 	ld	hl,#__str_1 + 0
+   000D E5                  133 	push	hl
+                            134 ; genCall
+   000E CD 00 00            135 	call	_printf
+   0011 E8 02               136 	lda	sp,2(sp)
+                            137 ;	dscan.c 8
+                            138 ; genIpush
+   0013 3E 80               139 	ld	a,#0x80
+   0015 F5                  140 	push	af
+   0016 33                  141 	inc	sp
+                            142 ; genCall
+   0017 CD 00 00            143 	call	_waitpad
+   001A E8 01               144 	lda	sp,1(sp)
+                            145 ;	dscan.c 9
+                            146 ; genIpush
+   001C 21 53 00            147 	ld	hl,#__str_2 + 0
+   001F E5                  148 	push	hl
+                            149 ; genCall
+   0020 CD 00 00            150 	call	_printf
+   0023 E8 02               151 	lda	sp,2(sp)
+                            152 ; genLabel
+   0025                     153 00101$:
+                            154 ; genEndFunction
+   0025 C1                  155 	pop	bc
+   0026 C9                  156 	ret
+   0027                     157 ___main_end:
+                            158 	.area _CODE
+   0027                     159 __str_0:
+   0027 57 65 6C 63 6F 6D   160 	.ascii "Welcome to GAMEBOY"
+        65 20 74 6F 20 47
+        41 4D 45 42 4F 59
+   0039 0A                  161 	.db 10
+   003A 50 72 6F 67 72 61   162 	.ascii "Programming"
+        6D 6D 69 6E 67
+   0045 00                  163 	.db 0
+   0046                     164 __str_1:
+   0046 0A                  165 	.db 10
+   0047 50 72 65 73 73 20   166 	.ascii "Press Start"
+        53 74 61 72 74
+   0052 00                  167 	.db 0
+   0053                     168 __str_2:
+   0053 0A                  169 	.db 10
+   0054 4C 6F 7A 20 69 73   170 	.ascii "Loz is a homo!"
+        20 61 20 68 6F 6D
+        6F 21
+   0062 00                  171 	.db 0
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
+
+Symbol Table
+
+  0 ___main_end                        0027 R
+  0 ___main_start                      0000 R
+    __cpu                              **** GX
+    __io_in                            **** GX
+    __io_out                           **** GX
+    __io_status                        **** GX
+  0 __str_0                            0027 R
+  0 __str_1                            0046 R
+  0 __str_2                            0053 R
+    _add_LCD                           **** GX
+    _add_TIM                           **** GX
+    _add_VBL                           **** GX
+    _cgb_compatibility                 **** GX
+    _cpu_fast                          **** GX
+    _cpu_slow                          **** GX
+    _delay                             **** GX
+    _disable_interrupts                **** GX
+    _display_off                       **** GX
+    _enable_interrupts                 **** GX
+    _get_bkg_tiles                     **** GX
+    _get_data                          **** GX
+    _get_mode                          **** GX
+    _get_sprite_data                   **** GX
+    _get_sprite_prop                   **** GX
+    _get_sprite_tile                   **** GX
+    _get_tiles                         **** GX
+    _get_win_tiles                     **** GX
+    _gets                              **** GX
+    _hiramcpy                          **** GX
+    _joypad                            **** GX
+  0 _main                              0000 GR
+    _mode                              **** GX
+    _move_bkg                          **** GX
+    _move_sprite                       **** GX
+    _move_win                          **** GX
+    _printf                            **** GX
+    _putchar                           **** GX
+    _puts                              **** GX
+    _receive_byte                      **** GX
+    _remove_JOY                        **** GX
+    _remove_LCD                        **** GX
+    _remove_SIO                        **** GX
+    _remove_TIM                        **** GX
+    _remove_VBL                        **** GX
+    _reset                             **** GX
+    _scroll_bkg                        **** GX
+    _scroll_sprite                     **** GX
+    _scroll_win                        **** GX
+    _send_byte                         **** GX
+    _set_bkg_data                      **** GX
+    _set_bkg_palette                   **** GX
+    _set_bkg_palette_entry             **** GX
+    _set_bkg_tiles                     **** GX
+    _set_data                          **** GX
+    _set_interrupts                    **** GX
+    _set_sprite_data                   **** GX
+    _set_sprite_palette                **** GX
+    _set_sprite_palette_entry          **** GX
+    _set_sprite_prop                   **** GX
+    _set_sprite_tile                   **** GX
+    _set_tiles                         **** GX
+    _set_win_data                      **** GX
+    _set_win_tiles                     **** GX
+    _sgb_check                         **** GX
+    _sprintf                           **** GX
+    _sys_time                          **** GX
+    _wait_vbl_done                     **** GX
+    _waitpad                           **** GX
+    _waitpadup                         **** GX
+
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
+
+Area Table
+
+   0 _CODE                              size   63   flags 0
+   1 _DATA                              size    0   flags 0
+   2 _OVERLAY                           size    0   flags 0
+   3 _ISEG                              size    0   flags 0
+   4 _BSEG                              size    0   flags 0
+   5 _XSEG                              size    0   flags 0
+   6 _GSINIT                            size    0   flags 0
+   7 _GSFINAL                           size    0   flags 0

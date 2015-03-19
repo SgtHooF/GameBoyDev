@@ -1,0 +1,91 @@
+XL
+H 8 areas 40 global symbols
+M lcc23240
+S _set_sprite_palette_entry Ref0000
+S _scroll_bkg Ref0000
+S _set_sprite_prop Ref0000
+S _reset Ref0000
+S _move_win Ref0000
+S _mode Ref0000
+S _enable_interrupts Ref0000
+S __cpu Ref0000
+S _waitpad Ref0000
+S _cpu_slow Ref0000
+S _sys_time Ref0000
+S __io_in Ref0000
+S _set_bkg_palette Ref0000
+S _get_win_tiles Ref0000
+S _move_sprite Ref0000
+S __io_out Ref0000
+S _get_sprite_data Ref0000
+S _remove_VBL Ref0000
+S _set_win_data Ref0000
+S _gets Ref0000
+S _receive_byte Ref0000
+S _remove_TIM Ref0000
+S _putchar Ref0000
+S _remove_SIO Ref0000
+S _set_win_tiles Ref0000
+S _get_data Ref0000
+S __io_status Ref0000
+S _add_LCD Ref0000
+S _set_sprite_data Ref0000
+S _scroll_win Ref0000
+S _send_byte Ref0000
+S _set_bkg_palette_entry Ref0000
+S _remove_JOY Ref0000
+S _get_tiles Ref0000
+S _get_sprite_tile Ref0000
+S _get_mode Ref0000
+S _cgb_compatibility Ref0000
+S _scroll_sprite Ref0000
+S _set_data Ref0000
+S _sprintf Ref0000
+S _joypad Ref0000
+S _move_bkg Ref0000
+S _set_interrupts Ref0000
+S _add_VBL Ref0000
+S _set_tiles Ref0000
+S _puts Ref0000
+S _delay Ref0000
+S _waitpadup Ref0000
+S _set_sprite_tile Ref0000
+S _set_sprite_palette Ref0000
+S _display_off Ref0000
+S _add_TIM Ref0000
+S _disable_interrupts Ref0000
+S _get_bkg_tiles Ref0000
+S _printf Ref0000
+S _cpu_fast Ref0000
+S _get_sprite_prop Ref0000
+S _set_bkg_data Ref0000
+S _sgb_check Ref0000
+S _wait_vbl_done Ref0000
+S _hiramcpy Ref0000
+S _set_bkg_tiles Ref0000
+S _remove_LCD Ref0000
+A _CODE size 63 flags 0
+S _main Def0000
+A _DATA size 0 flags 0
+A _OVERLAY size 0 flags 0
+A _ISEG size 0 flags 0
+A _BSEG size 0 flags 0
+A _XSEG size 0 flags 0
+A _GSINIT size 0 flags 0
+A _GSFINAL size 0 flags 0
+T 00 00 C5 21 27 00 E5 CD 00 00 E8 02 21 46 00 E5
+R 00 00 00 00 00 04 00 00 02 08 36 00 00 0D 00 00
+T 0E 00 CD 00 00 E8 02 3E 80 F5 33 CD 00 00 E8 01
+R 00 00 00 00 02 03 36 00 02 0C 08 00
+T 1C 00 21 53 00 E5 CD 00 00 E8 02 C1 C9
+R 00 00 00 00 00 03 00 00 02 07 36 00
+T 27 00 57 65 6C 63 6F 6D 65 20 74 6F 20 47 41 4D
+R 00 00 00 00
+T 35 00 45 42 4F 59 0A 50 72 6F 67 72 61 6D 6D 69
+R 00 00 00 00
+T 43 00 6E 67 00 0A 50 72 65 73 73 20 53 74 61 72
+R 00 00 00 00
+T 51 00 74 00 0A 4C 6F 7A 20 69 73 20 61 20 68 6F
+R 00 00 00 00
+T 5F 00 6D 6F 21 00
+R 00 00 00 00
